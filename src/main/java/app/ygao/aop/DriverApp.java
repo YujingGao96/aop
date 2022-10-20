@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DriverApp {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DriverApp.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DriverApp.class);
     private final Calculable calculable;
 
     @Autowired
@@ -29,10 +29,12 @@ public class DriverApp {
         var product = calculable.multiply(num1, num2);
         var quotient = calculable.divide(num1, num2);
 
-        LOG.debug("\n" +
-                "* sum is: " + sum + "\n" +
-                "* difference is: " + difference + "\n" +
-                "* product: " + product + "\n" +
-                "* quotient: " + quotient);
+        var template = """
+        
+        * sum is:           {}
+        * difference is:    {}
+        * product is:       {}
+        * quotient is       {}""";
+        LOGGER.debug(template, sum, difference, product, quotient);
     }
 }

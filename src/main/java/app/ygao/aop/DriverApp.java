@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DriverApp {
 
-    final static Logger LOG = LoggerFactory.getLogger(DriverApp.class);
-    final Calculable calculable;
+    private static final Logger LOG = LoggerFactory.getLogger(DriverApp.class);
+    private final Calculable calculable;
 
     @Autowired
     public DriverApp(Calculable calculable) {

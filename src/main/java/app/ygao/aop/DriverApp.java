@@ -29,12 +29,9 @@ public class DriverApp {
         var product = calculable.multiply(num1, num2);
         var quotient = calculable.divide(num1, num2);
 
-        var template = """
-        
-        * sum is:           {}
-        * difference is:    {}
-        * product is:       {}
-        * quotient is       {}""";
-        LOGGER.debug(template, sum, difference, product, quotient);
+        LOGGER.debug("* sum is:           {}", sum);
+        LOGGER.debug("* difference is:    {}", difference);
+        LOGGER.debug("* product is:       {}", product);
+        LOGGER.debug("* quotient is       {}", quotient);
     }
 }

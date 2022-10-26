@@ -13,11 +13,11 @@ public class DriverApp {
     private final Calculable calculable;
 
     @Autowired
-    public DriverApp(Calculable calculable) {
+    protected DriverApp(Calculable calculable) {
         this.calculable = calculable;
     }
 
-    void run(double[] twoNumbers) {
+    protected void run(double[] twoNumbers) {
         if (twoNumbers.length != 2) {
             throw new IllegalArgumentException("Array can only contains two numbers");
         }
@@ -28,10 +28,14 @@ public class DriverApp {
         var difference = calculable.subtract(num1, num2);
         var product = calculable.multiply(num1, num2);
         var quotient = calculable.divide(num1, num2);
+        printResult(sum, difference, product, quotient);
 
-        LOGGER.debug("* sum is:           {}", sum);
-        LOGGER.debug("* difference is:    {}", difference);
-        LOGGER.debug("* product is:       {}", product);
-        LOGGER.debug("* quotient is       {}", quotient);
+    }
+
+    private void printResult(double sum, double difference, double product, double quotient) {
+        LOGGER.debug("*            Sum is: {}", sum);
+        LOGGER.debug("*     Difference is: {}", difference);
+        LOGGER.debug("*        Product is: {}", product);
+        LOGGER.debug("*       Quotient is: {}", quotient);
     }
 }
